@@ -137,23 +137,21 @@ resource "aws_autoscaling_group" "bastion" {
   # If the expression in the following list itself returns a list, remove the
   # brackets to avoid interpretation as a list of lists. If the expression
   # returns a single list item then leave it as-is and remove this TODO comment.
-  tags = [
-    concat(
-      [
-        {
-          "key"                 = "Name"
-          "value"               = var.name
-          "propagate_at_launch" = true
-        },
-        {
-          "key"                 = "EIP"
-          "value"               = var.eip
-          "propagate_at_launch" = true
-        },
-      ],
-      var.extra_tags,
-    ),
-  ]
+  tags = concat(
+    [
+      {
+        "key"                 = "Name"
+        "value"               = var.name
+        "propagate_at_launch" = true
+      },
+      {
+        "key"                 = "EIP"
+        "value"               = var.eip
+        "propagate_at_launch" = true
+      },
+    ],
+    var.extra_tags,
+  )
 
   lifecycle {
     create_before_destroy = true
