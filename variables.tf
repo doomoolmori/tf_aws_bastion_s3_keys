@@ -25,6 +25,8 @@ variable "allowed_security_groups" {
 }
 
 variable "name" {
+  type = string
+
   default = "bastion"
 }
 
@@ -35,10 +37,13 @@ variable "extra_tags" {
 }
 
 variable "ami" {
+  type = string
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  type = string
+
+  default = "t3.micro"
 }
 
 variable "instance_volume_size_gb" {
@@ -47,16 +52,22 @@ variable "instance_volume_size_gb" {
 }
 
 variable "iam_instance_profile" {
+  type = string
 }
 
 variable "user_data_file" {
+  type = string
+
   default = "user_data.sh"
 }
 
 variable "s3_bucket_name" {
+  type = string
 }
 
 variable "s3_bucket_uri" {
+  type = string
+
   default = ""
 }
 
@@ -65,6 +76,8 @@ variable "enable_monitoring" {
 }
 
 variable "ssh_user" {
+  type = string
+
   default = "ubuntu"
 }
 
@@ -81,10 +94,13 @@ variable "additional_user_data_script" {
 }
 
 variable "region" {
+  type = string
+
   default = "eu-west-1"
 }
 
 variable "vpc_id" {
+  type = string
 }
 
 variable "security_group_ids" {
@@ -93,11 +109,16 @@ variable "security_group_ids" {
 }
 
 variable "subnet_ids" {
-  default     = []
+  type = list(string)
+
   description = "A list of subnet ids"
+
+  default     = []
 }
 
 variable "eip" {
+  type = string
+
   default = ""
 }
 
@@ -106,6 +127,8 @@ variable "associate_public_ip_address" {
 }
 
 variable "key_name" {
+  type = string
+
   default = ""
 }
 
