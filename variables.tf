@@ -93,12 +93,6 @@ variable "additional_user_data_script" {
   default = ""
 }
 
-variable "region" {
-  type = string
-
-  default = "eu-west-1"
-}
-
 variable "vpc_id" {
   type = string
 }
@@ -113,7 +107,7 @@ variable "subnet_ids" {
 
   description = "A list of subnet ids"
 
-  default     = []
+  default = []
 }
 
 variable "eip" {
