@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 resource "aws_security_group" "bastion" {
   name        = var.name
   vpc_id      = var.vpc_id
